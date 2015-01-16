@@ -2,3 +2,32 @@
 body {
   border-top: 1em solid black;
 }
+
+.initial-login {
+text-align: center;
+
+}
+
+h1 {
+  text-align: center;
+  font-size: 60px;
+  color: #be9fe7;
+
+  /*font-family: 'Parisienne', cursive;*/
+  font-family: 'Bad Script', cursive;
+  /*font-family: 'Gruppo', cursive;*/
+  /*font-family: 'Amatic SC', cursive;*/
+}
+
+p1 {
+  font-size: 30px;
+  /*font-family: 'Parisienne', cursive;*/
+  /*font-family: 'Bad Script', cursive;*/
+  font-family: 'Gruppo', cursive;
+  /*font-family: 'Amatic SC', cursive;*/
+}
+
+a:link {
+  color: #b5ecdf;
+  text-decoration: none;
+}
