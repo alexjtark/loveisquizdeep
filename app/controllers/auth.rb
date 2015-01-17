@@ -7,7 +7,9 @@ get '/signup' do
   erb :'auth/signup'
 end
 
-post "/upload" do
+# UPLOAD A PIC - IN PROGRESS FOR FUTURE FEATURE
+
+post '/upload' do
   File.open('uploads/' + params['myfile'][:filename], "w") do |f|
     f.write(params['myfile'][:tempfile].read)
   end

@@ -1,6 +1,10 @@
 /*== MAIN ==*/
 body {
   border-top: 1em solid black;
+  background-image: url("http://www.clker.com/cliparts/6/p/Y/8/5/P/heart-balloon-alone-md.png") ;
+  background-position: 100px;
+  background-repeat: no-repeat;
+
 }
 
 .initial_login {
@@ -62,4 +66,19 @@ a:link {
     left: 0;
     right: 0;
     margin: auto;
+}
+
+.input-submit {
+  background-color:#3c5664;
+  color:#f5faed;
+  font-family:'Helvetica Neue',sans-serif;
+  font-size:18px;
+  line-height:30px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  border:0;
+  text-shadow:#f4d2e2 0 -1px 0;
+  width:120px;
+  height:32px
 }
