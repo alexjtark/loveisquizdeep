@@ -3,6 +3,7 @@ class CreateQuizzes < ActiveRecord::Migration
     create_table :quizzes do |t|
       t.references :user
       t.string :catchphrase
+      t.text :prompts
       t.timestamps
     end
   end

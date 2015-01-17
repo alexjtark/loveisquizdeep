@@ -1,3 +1,5 @@
 class Quiz < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many    :questions
+  belongs_to  :user
+  has_many    :answers, through: :questions
 end

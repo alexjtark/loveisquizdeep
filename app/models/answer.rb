@@ -1,3 +1,5 @@
 class Answer < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to  :question
+  belongs_to :quiz, through: :questions
+  belongs_to  :user
 end

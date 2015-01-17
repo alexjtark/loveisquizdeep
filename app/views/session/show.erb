@@ -1,0 +1,21 @@
+<h1> Welcome Home, <%= @user.first_name.capitalize %> </h1>
+
+<div class="profile-image">
+  <img class="p-image" src="http://www.eurogeosurveys.org/wp-content/uploads/2014/02/default_profile_pic.jpg">
+</div>
+
+<div class="session-page">
+  <p3>
+  <a href="/session/<%= @user.id %>/edit">EDIT BIO</a> |
+  <a href="/session/<%= @user.id %>/matches">VIEW TODAY'S MATCHES</a> |
+  <a href="/session/<%= @user.id %>/matches">VIEW RESPONSES</a> |
+  <a href="/session/<%= @user.id %>/createquiz">CREATE A NEW QUIZ</a>
+</p3><br><br>
+
+<p2>Your Bio: </p2><br>
+<p1><%= @user.bio %></p1>
+
+</div>
+
+<br><br>
+
