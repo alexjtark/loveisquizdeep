@@ -23,10 +23,25 @@ get '/session/:id' do |id|
   erb :'session/show'
 end
 
+get '/session/:id/createquiz' do |id|
+  user = User.find(id)
+ erb :'/quiz/create_quiz'
+end
+
+post '/session/:id/quiz' do |id|
+  @user = User.find(id)
+  quiz = Quiz.create(params[:quiz])
+  #create logic to iterate over each question params and create new quiz question
+  # quiz.questions.create()
+end
+
+
 get '/session/:id/edit' do |id|
   @user = User.find(id)
   erb :'session/edit'
 end
+
+
 
 put '/session/:id' do |id|
   user = User.find(id)
