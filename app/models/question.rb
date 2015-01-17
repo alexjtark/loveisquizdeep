@@ -1,3 +1,5 @@
 class Question < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to   :quiz
+  has_many     :answers
+
 end

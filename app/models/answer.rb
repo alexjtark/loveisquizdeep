@@ -1,3 +1,4 @@
 class Answer < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to  :question
+  belongs_to  :respondent, source: :user, class_name: "User"
 end
