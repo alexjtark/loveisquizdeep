@@ -1,7 +1,9 @@
-get '/createquiz' do
+get '/quiz/new' do
  erb :'/quiz/create_quiz'
 end
 
-post '/createquiz' do
+post '/quiz' do
   quiz = Quiz.new(params[:quiz])
 end
+
+
