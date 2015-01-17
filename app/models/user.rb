@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
   has_secure_password
-  # Remember to create a migration!
+
+  def taken_quizzes
+
+  end
 end
+
+
+
