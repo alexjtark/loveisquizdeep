@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.date :birthdate
       t.text :bio
       t.string :gender
+      t.string :email
       t.string :seeking
       t.string :location
       t.timestamps
