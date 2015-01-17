@@ -1,0 +1,15 @@
+<center><p2> Make Some Changes, <%= @user.first_name.capitalize %> </p2></center>
+
+<center>
+<div class="edit_bio_form"><p1>
+  <form action="/session/<%= @user.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <p1>SEEKING</p1><br><br>
+    <input type="text" name="user[seeking]" value="<%= @user.seeking %>"><br><br>
+    <p1>BIO</p1><br><br>
+    <textarea name="user[bio]"><%= @user.bio %></textarea><br>
+    <input class="input-submit" type="submit">
+  </form><p1>
+</div>
+
+  </center>

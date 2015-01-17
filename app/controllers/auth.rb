@@ -23,6 +23,16 @@ get '/session/:id' do |id|
   erb :'session/show'
 end
 
+get '/session/:id/edit' do |id|
+  @user = User.find(id)
+  erb :'session/edit'
+end
+
+put '/session/:id' do |id|
+  user = User.find(id)
+  user.update(params[:user])
+  redirect ("/session/#{user.id}")
+end
 
 get '/signout' do
   session[:user_id] = nil
