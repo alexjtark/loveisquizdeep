@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
     unreviewed_quizzes
   end
 
+  def check_match(user)
+    self.get_matched_users.include?(user)
+  end
 end
 
 
