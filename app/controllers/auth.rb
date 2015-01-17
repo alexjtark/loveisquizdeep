@@ -10,13 +10,19 @@ end
 post '/signup' do
   user = User.create(params[:user])
 
-  # if user.save
-  #   session[:user_id] = user.id
-    redirect "/"
-  # else
-    # redirect "/signup"
-  # end
+  if user.save
+    session[:user_id] = user.id
+    redirect "/session/#{user.id}"
+  else
+    redirect "/signup"
+  end
 end
+
+get '/session/:id' do |id|
+  @user = User.find(id)
+  erb :'session/show'
+end
+
 
 get '/signout' do
   session[:user_id] = nil
