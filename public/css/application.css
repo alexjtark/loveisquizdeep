@@ -1,9 +1,13 @@
 /*== MAIN ==*/
 body {
   border-top: 1em solid black;
+  background-image: url("http://www.clker.com/cliparts/6/p/Y/8/5/P/heart-balloon-alone-md.png") ;
+  background-position: 100px;
+  background-repeat: no-repeat;
+
 }
 
-.initial-login {
+.initial_login {
 text-align: center;
 
 }
@@ -11,7 +15,7 @@ text-align: center;
 h1 {
   text-align: center;
   font-size: 60px;
-  color: #be9fe7;
+  color: #3c5664;
 
   /*font-family: 'Parisienne', cursive;*/
   font-family: 'Bad Script', cursive;
@@ -27,7 +31,54 @@ p1 {
   /*font-family: 'Amatic SC', cursive;*/
 }
 
+p2 {
+  font-size: 30px;
+  /*font-family: 'Parisienne', cursive;*/
+  font-family: 'Bad Script', cursive;
+  /*font-family: 'Gruppo', cursive;*/
+  /*font-family: 'Amatic SC', cursive;*/
+}
+
 a:link {
   color: #b5ecdf;
   text-decoration: none;
+}
+
+.login_form {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.signup_form {
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.input-submit {
+  background-color:#3c5664;
+  color:#f5faed;
+  font-family:'Helvetica Neue',sans-serif;
+  font-size:18px;
+  line-height:30px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  border:0;
+  text-shadow:#f4d2e2 0 -1px 0;
+  width:120px;
+  height:32px
 }
