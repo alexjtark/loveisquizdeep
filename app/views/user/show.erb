@@ -1,4 +1,18 @@
-<div class= "container">
-    <%if current_user.check_match?(User.find(id))%>
+<div class="profile">
+    <% if current_user.check_match?(user) %>
+      <img class="profile_pic" src="<%=user.image_url%>">
+    <%else%>
+      <img class="profile_pic" src="http://www.eurogeosurveys.org/wp-content/uploads/2014/02/default_profile_pic.jpg">
+    <%end%>
+    <a href= "/user/<%=user.id%>"><%= user.username %></a><br>
+    Gender: <%=user.gender%><br>
+    Age: <%=user.age%><br>
+    Current location: <%=user.location%><br>
+    Seeking: <%=user.seeking%><br><br>
+    Bio: <%=user.bio%><br><br>
+    <a href="#">Take my quiz!</a><br>
+    <% if current_user.check_match?(user) %>
+      <h3>Matched</h3>
+    <%end%>
+  </div>
 
-</div>
