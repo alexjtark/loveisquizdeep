@@ -23,7 +23,6 @@ end
 
 post '/signup' do
   user = User.create(params[:user])
-
   if user.save
     session[:user_id] = user.id
     redirect "/session/#{user.id}"
@@ -33,7 +32,7 @@ post '/signup' do
   end
 end
 
-get '/session/:id' do |id|
+get '/session/:id' do |id| #view own page?
   @user = User.find(id)
   erb :'session/show'
 end

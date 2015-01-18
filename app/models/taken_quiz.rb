@@ -10,5 +10,4 @@ class TakenQuiz < ActiveRecord::Base
     end
     TakenQuiz.create(user_id: user.id, quiz_id: quiz.id)
   end
-
 end
