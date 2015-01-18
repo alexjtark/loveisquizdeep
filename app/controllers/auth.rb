@@ -13,7 +13,6 @@ post '/login' do
       #error to inform user they logged in incorrectly
       redirect '/login'
     end
-
   end
 end
 

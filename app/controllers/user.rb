@@ -5,7 +5,7 @@ end
 
 get '/home' do
   @user = current_user
-  erb :'session/show'
+  erb :'user/home'
 end
 
 get '/user/:id' do |id|
@@ -14,7 +14,7 @@ end
 
 get '/profile/edit' do
   @user = current_user
-  erb :'session/edit'
+  erb :'user/edit'
 end
 
 put '/profile' do
