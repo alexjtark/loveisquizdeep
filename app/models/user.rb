@@ -30,8 +30,13 @@ class User < ActiveRecord::Base
     unreviewed_quizzes
   end
 
-  def check_match(user)
+  def check_match?(user)
     self.get_matched_users.include?(user)
+  end
+
+ def age
+  now = Time.now.utc.to_date
+  now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
   end
 end
 
