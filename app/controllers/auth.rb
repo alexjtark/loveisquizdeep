@@ -1,6 +1,20 @@
-
 get '/login' do
   erb :'/auth/login'
+end
+
+post '/login' do
+  user = User.find_by(username: params[:user][:username])
+
+  if user
+    if user.authenticate(params[:user][:password])
+      session[:user_id] = user.id
+      redirect "/session/#{user.id}"
+    else
+      #error to inform user they logged in incorrectly
+      redirect '/login'
+    end
+
+  end
 end
 
 get '/signup' do
@@ -14,6 +28,7 @@ post '/signup' do
     session[:user_id] = user.id
     redirect "/session/#{user.id}"
   else
+    #error to inform user they completed the form incorrectly
     redirect "/signup"
   end
 end
@@ -34,7 +49,7 @@ put '/session/:id' do |id|
   redirect ("/session/#{user.id}")
 end
 
-get '/signout' do
+get '/logout' do
   session[:user_id] = nil
   redirect '/'
 end
