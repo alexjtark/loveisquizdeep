@@ -1,0 +1,12 @@
+<div class="container">
+<h1>My Matches</h1>
+
+<% @user.get_matched_users.each do |user| %>
+<%=erb :'user/show', locals: {user: user} %>
+<% end %>
+
+<%if @user.get_matched_users.length == 0%>
+  <h2> No matches yet! </h2>
+<%end%>
+
+</div>

@@ -9,5 +9,3 @@ post '/quiz/new' do
   end
   redirect 'user/'
 end
-
-
