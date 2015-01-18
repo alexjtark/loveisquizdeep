@@ -37,7 +37,7 @@ put '/session/:id' do |id|
   redirect ("/session/#{user.id}")
 end
 
-get '/signout' do
+get '/logout' do
   session[:user_id] = nil
   redirect '/'
 end
