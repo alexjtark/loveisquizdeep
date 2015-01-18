@@ -3,12 +3,23 @@ get '/user/all' do
   erb :'user/all'
 end
 
+get '/home' do
+  @user = current_user
+  erb :'session/show'
+end
 
 get '/user/:id' do |id|
-  #view someone's page
   erb :'user/show'
 end
 
+get '/profile/edit' do
+  @user = current_user
+  erb :'session/edit'
+end
 
-
+put '/profile' do
+  user = current_user
+  user.update(params[:user])
+  redirect "/home"
+end
 
