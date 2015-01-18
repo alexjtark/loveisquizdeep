@@ -1,27 +1,23 @@
 <div class= "container">
   <h1>Checkout All Users</h1>
 
-  <ul>
     <% @users.each do |user| %>
-    <li>
-      <div>
+      <div class="profile">
         <% if current_user.check_match?(user) %>
           <img class="profile_pic" src="<%=user.image_url%>">
         <%else%>
           <img class="profile_pic" src="http://www.eurogeosurveys.org/wp-content/uploads/2014/02/default_profile_pic.jpg">
         <%end%>
         <a href= "/user/<%=user.id%>"><%= user.username %></a><br>
-        gender: <%=user.gender%>
-        age: <%=user.age%>
-        current location: <%=user.location%><br>
-        seeking: <%=user.seeking%><br><br>
-        bio: <%=user.bio%><br><br>
-        <a href="#">Take my quiz!</a>
+        Gender: <%=user.gender%><br>
+        Age: <%=user.age%><br>
+        Current location: <%=user.location%><br>
+        Seeking: <%=user.seeking%><br><br>
+        Bio: <%=user.bio%><br><br>
+        <a href="#">Take my quiz!</a><br>
         <% if current_user.check_match?(user) %>
           <h3>Matched</h3>
         <%end%>
       </div>
-    </li>
     <% end %>
-  </ul>
 </div>
