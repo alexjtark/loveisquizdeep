@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :answers
   has_many :quizzes
-  has_many :matches
+
   has_many :taken_quizzes
   # has_many :created_quizzes, class_name: "TakenQuiz", through: :quizzes, source:
 
@@ -37,6 +37,13 @@ class User < ActiveRecord::Base
  def age
   now = Time.now.utc.to_date
   now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
+
+  def matches
+    matches = []
+    matches << Match.where(friendee_id: self.id)
+    matches << Match.where(friender_id: self.id)
+    matches.flatten!
   end
 end
 
