@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'date'
 
 page = Nokogiri::HTML(open("http://studiomark.com/headshots-women.html"))
 
@@ -8,15 +9,19 @@ links = page.css('td img').map { |image| "http://studiomark.com/" + image['src']
 
 
 20.times {
-  User.create(
+  User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    username: Faker::Internet.username,
+    username: Faker::Internet.user_name,
     gender: ["Male", "Female"].sample, #undisclosed or sth as well?
     email: Faker::Internet.email,
+    seeking: ["Male", "Female", "Both"].sample,
     location: Faker::Address.city,
-    birthdate: Faker::Date.date,
+    birthdate: Date.parse("#{rand(1960..2000)}-0#{rand(1..9)}-#{rand(10..30)}"),
     image_url: links.sample,
+    bio: Faker::Lorem.paragraph,
+    password: "a",
+    password_confirmation: "a"
     )
 }
 
@@ -25,7 +30,7 @@ users = User.all
 users.each do |user|
 
   2.times {
-    user.quizzes.create(catchphrase: Faker::App.name)
+    user.quizzes.create(catchphrase: Faker::Lorem.words(3).join(""))
   }
 
 end
@@ -38,16 +43,21 @@ quizzes.each do |quiz|
   questions_copy = sample_questions.dup #copies object contents
   5.times {
     quiz.questions.create(prompt: questions_copy.shift)
+    questions_copy.shuffle
   }
 end
 
-def take_quiz(user, quiz)
-  if user != quiz.user
-    quiz.questions.each do |question|
-      question.answers.create(response: Faker::Hacker.say_something_smart, user_id: user.id, prompt: question.prompt)
-    end
-  end
+users.each do |user|
+  quizzes = Quiz.all
+  quiz = quizzes.sample
+  5.times {
+    TakenQuiz.take_quiz(user, quiz)
+  }
 end
+
+
+
+
 
 
 
