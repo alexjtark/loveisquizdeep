@@ -16,6 +16,12 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'nokogiri'
+
+# gem 'open-air'
+
+
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
