@@ -2,23 +2,46 @@ require 'nokogiri'
 require 'open-uri'
 require 'date'
 
-page = Nokogiri::HTML(open("http://studiomark.com/headshots-women.html"))
+womens_page = Nokogiri::HTML(open("http://studiomark.com/headshots-women.html"))
 
-links = page.css('td img').map { |image| "http://studiomark.com/" + image['src'] }
+women_links = womens_page.css('td img').map { |image| "http://studiomark.com/" + image['src'] }
 
+mens_page = Nokogiri::HTML(open("http://studiomark.com/headshots-men.html"))
 
+men_links = mens_page.css('td img').map { |image| "http://studiomark.com/" + image['src'] }
+
+#create men
 
 20.times {
   User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     username: Faker::Internet.user_name,
-    gender: ["Male", "Female"].sample, #undisclosed or sth as well?
+    gender: "Male", #undisclosed or sth as well?
     email: Faker::Internet.email,
     seeking: ["Male", "Female", "Both"].sample,
     location: Faker::Address.city,
     birthdate: Date.parse("#{rand(1960..2000)}-0#{rand(1..9)}-#{rand(10..30)}"),
-    image_url: links.sample,
+    image_url: men_links.sample,
+    bio: Faker::Lorem.paragraph,
+    password: "a",
+    password_confirmation: "a"
+    )
+}
+
+#create women
+
+20.times {
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    username: Faker::Internet.user_name,
+    gender: "Female", #undisclosed or sth as well?
+    email: Faker::Internet.email,
+    seeking: ["Male", "Female", "Both"].sample,
+    location: Faker::Address.city,
+    birthdate: Date.parse("#{rand(1960..2000)}-0#{rand(1..9)}-#{rand(10..30)}"),
+    image_url: women_links.sample,
     bio: Faker::Lorem.paragraph,
     password: "a",
     password_confirmation: "a"
