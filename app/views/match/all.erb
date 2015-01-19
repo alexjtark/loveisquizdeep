@@ -3,6 +3,10 @@
 
 <% @user.get_matched_users.each do |user| %>
 <%=erb :'user/show', locals: {user: user} %>
+  <form action="/match/<%=user.id%>" method="POST" class="delete_form">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Match">
+  </form>
 <% end %>
 
 <%if @user.get_matched_users.length == 0%>
