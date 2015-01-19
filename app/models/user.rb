@@ -22,10 +22,10 @@ class User < ActiveRecord::Base
 
   def unreviewed_quizzes
     unreviewed_quizzes = []
-    for i in user.created_quizzes
+    for i in self.created_quizzes
       unreviewed_quizzes << TakenQuiz.where("quiz_id = ? AND reviewed = ?", i.id, false)
       end
-    unreviewed_quizzes
+    unreviewed_quizzes.flatten!
   end
 
   def check_match?(user)
