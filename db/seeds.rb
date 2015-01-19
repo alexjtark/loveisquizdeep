@@ -30,7 +30,7 @@ users = User.all
 users.each do |user|
 
   2.times {
-    user.quizzes.create(catchphrase: Faker::Lorem.words(3).join(""))
+    user.created_quizzes.create(catchphrase: Faker::Lorem.words(3).join(""))
   }
 
 end
