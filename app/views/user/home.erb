@@ -2,7 +2,7 @@
 <h1> Welcome Home, <%= @user.first_name.capitalize %> </h1>
 
 <div class="profile-image">
-  <img class="p-image" src="http://www.eurogeosurveys.org/wp-content/uploads/2014/02/default_profile_pic.jpg">
+  <img class="p-image" src="<%=@user.image_url%>">
 </div>
 
 <div class="session-page">
