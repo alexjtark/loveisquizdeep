@@ -15,7 +15,6 @@ class TakenQuiz < ActiveRecord::Base
     answers = Answer.where(user_id: self.user_id, )
 
 
-
   end
 
 

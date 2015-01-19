@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   def unreviewed_quizzes
     unreviewed_quizzes = []
-    for i in user.quizzes
+    for i in user.created_quizzes
       unreviewed_quizzes << TakenQuiz.where("quiz_id = ? AND reviewed = ?", i.id, false)
       end
     unreviewed_quizzes
