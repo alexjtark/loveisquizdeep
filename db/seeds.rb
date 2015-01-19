@@ -49,12 +49,17 @@ end
 
 users.each do |user|
   quizzes = Quiz.all
-  quiz = quizzes.sample
   5.times {
+    quiz = quizzes.sample
     TakenQuiz.take_quiz(user, quiz)
-  }
-end
 
+    x = rand(2..9)
+    if x%2 == 0
+      Match.create(friender: user, friendee: quiz.creator)
+    end
+  }
+
+end
 
 
 
