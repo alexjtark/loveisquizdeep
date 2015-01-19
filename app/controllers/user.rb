@@ -17,7 +17,7 @@ get '/profile/edit' do
   erb :'user/edit'
 end
 
-put '/profile' do
+put '/profile/edit' do
   user = current_user
   user.update(params[:user])
   redirect "/home"
