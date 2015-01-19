@@ -58,7 +58,6 @@ users.each do |user|
       Match.create(friender: user, friendee: quiz.creator)
     end
   }
-
 end
 
 
