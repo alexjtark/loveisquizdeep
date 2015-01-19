@@ -110,3 +110,23 @@ textarea {
   min-height: 400px;
   min-width: 600px;
 }
+
+
+.quiz_result {
+  margin-left: 50px;
+  background-color: #FFCCFF;
+  width: 800px;
+}
+
+.accept_button {
+  margin: 20px;
+  border-radius: 50%;
+  background-color: green;
+
+}
+
+.reject_button {
+  margin: 20px;
+  border-radius: 50%;
+  background-color: red;
+}
