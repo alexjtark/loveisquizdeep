@@ -1,0 +1,28 @@
+<div id="container">
+
+  <% @all_results.each do |key, value| %>
+    <div class="quiz_result">
+      <h3><%=  key[1].username %></h3>
+      <ol>
+      <%value.each_with_index do |quesAns| %>
+        <li>
+        <strong><%=quesAns[0] %></strong><br><br>
+        <%=quesAns[1]%>
+        </li><br><br>
+      <%end%>
+    </ol><br><br>
+    <form action="/match/<%= key[1].id%>/quiz/<%=key[0]%>" method="POST" class="accept_button">
+      <input type="submit" value="ACCEPT MATCH!">
+    </form>
+
+    <form action="/pass/<%=key[0]%>" method="POST" class="reject_button">
+      <input type="hidden" name="_method" value="PUT">
+      <input type="submit" value="PASS">
+    </form>
+
+    </div>
+  <%end%>
+
+
+
+</div>
