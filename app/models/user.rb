@@ -4,10 +4,8 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
 
   has_many :answers
-  has_many :quizzes
-
   has_many :taken_quizzes
-  # has_many :created_quizzes, class_name: "TakenQuiz", through: :quizzes, source:
+  has_many :created_quizzes, class_name: "Quiz", foreign_key: :creator_id
 
   def get_matched_users
     matched_users = []
@@ -24,7 +22,7 @@ class User < ActiveRecord::Base
 
   def unreviewed_quizzes
     unreviewed_quizzes = []
-    for i in user.quizzes
+    for i in user.created_quizzes
       unreviewed_quizzes << TakenQuiz.where("quiz_id = ? AND reviewed = ?", i.id, false)
       end
     unreviewed_quizzes

@@ -30,7 +30,7 @@ users = User.all
 users.each do |user|
 
   2.times {
-    user.quizzes.create(catchphrase: Faker::Lorem.words(3).join(""))
+    user.created_quizzes.create(catchphrase: Faker::Lorem.words(3).join(""))
   }
 
 end
@@ -49,12 +49,16 @@ end
 
 users.each do |user|
   quizzes = Quiz.all
-  quiz = quizzes.sample
   5.times {
+    quiz = quizzes.sample
     TakenQuiz.take_quiz(user, quiz)
+
+    x = rand(2..9)
+    if x%2 == 0
+      Match.create(friender: user, friendee: quiz.creator)
+    end
   }
 end
-
 
 
 
