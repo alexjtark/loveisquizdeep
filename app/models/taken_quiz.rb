@@ -10,4 +10,13 @@ class TakenQuiz < ActiveRecord::Base
     end
     TakenQuiz.create(user_id: user.id, quiz_id: quiz.id)
   end
+
+  def render_results
+    answers = Answer.where(user_id: self.user_id, )
+
+
+
+  end
+
+
 end
