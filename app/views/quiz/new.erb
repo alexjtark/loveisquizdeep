@@ -2,10 +2,11 @@
 <center><p2>Make them fun, interesting and insightful!</p2></center>
 <ol><center>
 <div class="quiz_form">
-  <form id= "createquiz" action="/create" method="POST">
+  <form id= "createquiz" action="/quiz/new" method="POST">
+    <p1>Catchphrase</p1><br><br> <input type="text" name="quiz[catchphrase]" placeholder="Give your quiz a catchy header"><br><br>
     <p1>Question 1</p1><br><br> <input type="text" name="question[1]" placeholder="Enter your first question here:"><br><br>
-    <p1>Question 2</p1><br><br> <input type="text" name="user[2]" placeholder="Enter your second question here:"><br><br>
-    <p1>Question 3</p1><br><br> <input type="text" name="user[3]" placeholder="Enter your third question here:"><br><br>
+    <p1>Question 2</p1><br><br> <input type="text" name="question[2]" placeholder="Enter your second question here:"><br><br>
+    <p1>Question 3</p1><br><br> <input type="text" name="question[3]" placeholder="Enter your third question here:"><br><br>
     <input type="submit">
   </form>
 </div></center>
