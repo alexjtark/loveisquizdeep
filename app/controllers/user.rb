@@ -9,7 +9,9 @@ get '/home' do
 end
 
 get '/user/:id' do |id|
-  erb :'user/show'
+
+  @user = User.find(id)
+  erb :'user/show', locals: {user: @user}
 end
 
 get '/profile/edit' do
@@ -17,7 +19,7 @@ get '/profile/edit' do
   erb :'user/edit'
 end
 
-put '/profile' do
+put '/profile/edit ' do
   user = current_user
   user.update(params[:user])
   redirect "/home"

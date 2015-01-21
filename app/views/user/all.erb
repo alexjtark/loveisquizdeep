@@ -1,6 +1,8 @@
 <div class= "container">
   <h1>Checkout All Users</h1>
-    <% @users.each do |user| %>
-      <%=erb :'user/show', locals: {user: user}%>
+    <% @users.map do |user| %>
+      <% if user.created_quizzes.count > 0%>
+        <%=erb :'user/show', locals: {user: user}%>
+      <% end %>
     <% end %>
 </div>

@@ -3,9 +3,22 @@ get '/quiz/new' do
 end
 
 post '/quiz/new' do
-  quiz = Quiz.new(params[:quiz])
+  quiz = Quiz.new(params[:quiz], creator_id: User.find(session[:user_id]).id)
+
   if quiz.save
-    generate_questions(params[:questions], quiz.id)
+    quiz.generate_questions(params[:question])
+    redirect '/home'
   end
-  redirect 'user/'
 end
+
+get '/quiz/:id/show' do |id|
+
+  @quiz = Quiz.find(id)
+  @user = User.find(@quiz.creator_id)
+  erb :'/quiz/show'
+end
+
+put 'quiz/show' do
+ # create answers and taken_quiz, check for matches
+end
+

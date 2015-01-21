@@ -1,11 +1,11 @@
-<h1>Answer <%= @quiz_owner.first_name%>'s quiz!</h1>
+<h1>Answer <%= @user.first_name%>'s quiz!</h1>
 <center><p2>Just be yourself!</p2></center>
 <ol><center>
 <div class="quiz_form">
   <form id= "createquiz" action="/create" method="POST">
-    <p1> <%= @quiz_owner.quizzes.last.questions.map do |question| %>
+    <p1> <% @quiz.questions.map do |question| %>
       <%= question.prompt %>
-      <input type="text" name="question[1]" placeholder="Enter your answer here:">
+      <input type="text" name="answer[<%= question.id%>]" placeholder="Enter your answer here:">
       <% end %>
       </p1>
     <input type="submit">
