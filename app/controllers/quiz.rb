@@ -10,3 +10,12 @@ post '/quiz/new' do
     redirect '/home'
   end
 end
+
+get '/quiz/:id/show' do
+  erb :'/quiz/show'
+end
+
+put 'quiz/show' do
+ # create answers and taken_quiz, check for matches
+end
+
