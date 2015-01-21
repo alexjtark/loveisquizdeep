@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
       matched_users
   end
 
+  # def current_quiz
+  #   quiz.find(creator_id: self.id).order("value DESC").first
+  # end
 
   def unreviewed_quizzes
     unreviewed_quizzes = []
