@@ -11,7 +11,10 @@ post '/quiz/new' do
   end
 end
 
-get '/quiz/:id/show' do
+get '/quiz/:id/show' do |id|
+
+  @quiz = Quiz.find(id)
+  @user = User.find(@quiz.creator_id)
   erb :'/quiz/show'
 end
 
