@@ -12,4 +12,8 @@ class Quiz < ActiveRecord::Base
     end
   end
 
+  def current_quiz
+    quiz.find(self.id).order("value DESC").first
+  end
+
 end
