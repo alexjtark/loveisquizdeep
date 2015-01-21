@@ -10,7 +10,7 @@
   Current location: <%=user.location%><br>
   Seeking: <%=user.seeking%><br><br>
   Bio: <%=user.bio%><br><br>
-  <a href="/quiz/<%=user.current_quiz.quiz_id %>/show">Take my quiz!</a><br>
+  <a href="/quiz/<%=user.created_quizzes.last.id %>/show">Take my quiz!</a><br>
   <% if current_user.check_match?(user) %>
     <h3>Matched</h3>
   <%end%>

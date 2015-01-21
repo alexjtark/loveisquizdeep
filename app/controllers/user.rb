@@ -11,7 +11,7 @@ end
 get '/user/:id' do |id|
 
   @user = User.find(id)
-  erb :'user/show'
+  erb :'user/show', locals: {user: @user}
 end
 
 get '/profile/edit' do
